@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto</title>
+</head>
+<body>
+    <h1>Lotto in console</h1>
+    
+
+    <script>
+
+let numberArr = []
+for (i=1; i <=42; i++) {
+    numberArr.push(i)
+}
+console.log(numberArr);
+
+let lottoArr = []
+
+for (i=0; i <= 6; i++) {
+    let randomIndex = Math.floor(Math.random() * numberArr.length)
+    let randomNumber = numberArr.splice(randomIndex, 1)[0]
+    lottoArr.push(randomNumber)
+}
+
+console.log(lottoArr);
+
+        
+
+
+
+    </script>
+</body>
+</html>

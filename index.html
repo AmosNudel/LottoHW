@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Number</title>
+</head>
+<body>
+
+    <input id="user_input" type="number" placeholder="Choose a number between 1 to 4" style="width: 220px;">
+    <br>
+    <button onclick="findSelectedNumber()">Show Result</button>
+    <h3 id="display_of_result"></h3>
+    
+
+    <script>
+
+        let arr=[]
+
+        // let userChoice = document.getElementById('user_input').innerHTML
+
+        for (i = 0; i <= 10; i++) {
+            arr.push(Math.floor(Math.random() * (4)) + 1)
+        }
+
+        console.log(arr);
+        
+
+        let minValue = Math.min(...arr);
+        let maxValue = Math.max(...arr);
+        // console.log(minValue);
+        // console.log(maxValue);
+        
+        let counter = 0
+        let displayCounter = 0
+        
+        let randNum = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+        console.log(randNum);
+
+        for (i = 0; i < arr.length; i++) {
+            arr[i] == randNum && counter++
+        }
+
+        console.log(counter);
+
+        function findSelectedNumber () {
+            let userSelection = document.getElementById('user_input').value
+            document.getElementById('display_of_result').innerHTML = ""
+            displayCounter = 0
+            if (userSelection >= 1 && userSelection <= 4) {
+                for (i = 0; i < arr.length; i++) {
+                    if (arr[i] == userSelection) {
+                        displayCounter ++
+                    }
+                }
+            }
+            if (userSelection <= 0 || userSelection >=5) {
+                return document.getElementById('display_of_result').innerHTML = 'Choose a number from 1 to 4'
+            }
+            console.log(displayCounter);
+            document.getElementById('display_of_result').innerHTML = `The number ${userSelection} appears ${displayCounter} times.`
+            console.log(userSelection);
+        }
+        
+        
+
+    </script>
+</body>
+</html>
